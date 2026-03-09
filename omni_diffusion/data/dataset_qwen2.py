@@ -580,9 +580,12 @@ class Qwen2Dataset(BaseDataset):
 def preprocess(
     sample,
     tokenizer: transformers.PreTrainedTokenizer,
+    image_token_length: int,
     default_system_message: str = "You are a helpful assistant.",
     processor=None,
     is_begin: bool = True,
+    max_num_frame: int = 8,
+    max_fps: int = 1,
 ) -> Dict:
 
     from ..constants import (
