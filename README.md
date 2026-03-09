@@ -1,6 +1,6 @@
 # Omni-Diffusion: Unified Multimodal Understanding and Generation with Masked Discrete Diffusion
 
-<font size=3><div align='center' > [[🌐 Homepage](https://omni-diffusion.github.io)] [[📖 Paper](https://github.com/VITA-MLLM/Omni-Diffusion.git)] [[🤗 Model Weight](https://huggingface.co/lijiang/Omni-Diffusion)]</div></font>
+<font size=3><div align='center' > [[🌐 Homepage](https://omni-diffusion.github.io)] [[📖 Paper](https://arxiv.org/abs/2603.06577)] [[🤗 Model Weight](https://huggingface.co/lijiang/Omni-Diffusion)]</div></font>
 
 This repository hosts code of **Omni-Diffusion**, the first any-to-any multimodal language model build on a mask-based discrete diffusion model. By modeling a joint distribution over discrete tokens of text, images, and speech, Omni-Diffusion exhibiting strong capability in multimodal comprehension and generation.
 <p align="center">
