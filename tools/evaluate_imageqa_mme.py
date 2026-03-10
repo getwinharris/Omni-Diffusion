@@ -130,7 +130,7 @@ class S2SInference:
         ]
 
         if image_path is not None:
-            image_tokens = self.image_processor.process_images_with_subpatch(image_path)
+            image_tokens = self.image_processor.process_images_with_subpatch(image_path, 512)
             image_tokens = self.image_processor.get_image_token(image_tokens)
             image_tokens = image_tokens[0].tolist()
             image_tokens = "".join(f"<|image_{i}|>" for i in image_tokens)
