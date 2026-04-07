@@ -205,6 +205,34 @@ The above script may need some adjustments.
 - Modify other variables as needed for your environment.
 
 
+
+## Streaming byte-token index for HF datasets (no full download)
+
+If you want to treat **words as tokens** and convert them into **byte IDs (0-255)**,
+use the new `HFStreamingByteIndexer` utility. It reads Hugging Face datasets in
+`streaming=True` mode, builds a search index + modality map, and emits a byte
+histogram that can be interpreted as pseudo-weights.
+
+```python
+from omni_diffusion.data.hf_byte_index import HFStreamingByteIndexer, search_index
+
+indexer = HFStreamingByteIndexer()
+index_blob = indexer.build_index(
+    dataset_name="openwebtext",
+    split="train",
+    max_samples=2000,
+)
+
+hits = search_index(index_blob, "diffusion multimodal")
+print(hits[:3])
+```
+
+Outputs include:
+- `inverted_index`: word -> sample ids
+- `samples`: indexed samples with detected modality labels
+- `kg_edges`: lightweight co-occurrence graph (auto-KG)
+- `byte_histogram` and `pseudo_weights`: 256-dim byte distribution
+
 ## Inference
 
 Here we implement a simple script for inference.
